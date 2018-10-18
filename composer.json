@@ -1,8 +1,8 @@
 {
-	"name": "xwp/wp-middleware",
+	"name": "rheinardkorf/wp-middleware",
 	"type": "wordpress-plugin",
 	"description": "A WordPress plugin to create middleware for third-party APIs.",
-	"homepage": "https://github.com/xwp/wp-middleware",
+	"homepage": "https://github.com/rheinardkorf/wp-middleware",
 	"license": "GPLv2",
 	"require-dev": {
 		"satooshi/php-coveralls": "dev-master"

@@ -31,12 +31,12 @@ You will need [Node.js](http://nodejs.org), [Grunt](http://gruntjs.com), & [PHPU
 To clone the WordPress Core
 
 ``` bash
-$ git clone https://github.com/xwp/wordpress-develop.git
+$ git clone https://github.com/rheinardkorf/wordpress-develop.git
 ```
 
 To clone this repository
 ``` bash
-$ git clone --recursive git@github.com:xwp/wp-middleware.git wp-middleware
+$ git clone --recursive git@github.com:rheinardkorf/wp-middleware.git wp-middleware
 ```
 
 To install packages

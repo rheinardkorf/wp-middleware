@@ -1,5 +1,5 @@
 === WP Middleware ===
-Contributors: xwp, rheinardkorf
+Contributors: rheinardkorf
 Requires at least: 4.9.8
 Tested up to: 4.9.8
 Stable tag: trunk

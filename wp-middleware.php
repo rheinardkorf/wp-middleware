@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name: WP Middleware
- * Plugin URI: https://github.com/xwp/wp-middleware
+ * Plugin URI: https://github.com/rheinardkorf/wp-middleware
  * Description: A plugin to create middleware for third-party APIs.
  * Version: 0.1
- * Author:  XWP
- * Author URI: https://xwp.co/
+ * Author:  Rheinard Korf
+ * Author URI: https://github.com/rheinardkorf
  * License: GPLv2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: wp-middleware
  * Domain Path: /languages
  *
- * Copyright (c) 2016 XWP (https://xwp.co/)
+ * Copyright (c) 2018 Rheinard Korf (https://github.com/rheinardkorf)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at

@@ -1,12 +1,12 @@
 {
 	"name": "wp-middleware",
 	"title": "WP Middleware",
-	"homepage": "https://github.com/xwp/wp-middleware",
+	"homepage": "https://github.com/rheinardkorf/wp-middleware",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/xwp/wp-middleware.git"
+		"url": "https://github.com/rheinardkorf/wp-middleware.git"
 	},
-	"author": "XWP",
+	"author": "Rheinard Korf",
 	"license": "GPL-2.0+",
 	"devDependencies": {
 		"grunt": "~1.0.1",
