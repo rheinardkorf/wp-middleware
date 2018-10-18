@@ -3,13 +3,13 @@
 
 A plugin to create middleware for third-party APIs.
 
-**Contributors:** [xwp](https://profiles.wordpress.org/xwp), [rheinardkorf](https://profiles.wordpress.org/rheinardkorf)  
+**Contributors:** [rheinardkorf](https://profiles.wordpress.org/rheinardkorf)  
 **Requires at least:** 4.9.8  
 **Tested up to:** 4.9.8  
 **Stable tag:** trunk (master)  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/xwp/wp-middleware.svg?branch=master)](https://travis-ci.org/xwp/wp-middleware) [![Coverage Status](https://coveralls.io/repos/xwp/wp-middleware/badge.svg?branch=master)](https://coveralls.io/github/xwp/wp-middleware) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com) [![devDependency Status](https://david-dm.org/xwp/wp-middleware/dev-status.svg)](https://david-dm.org/xwp/wp-middleware?type=dev) 
+[![Build Status](https://travis-ci.org/rheinardkorf/wp-middleware.svg?branch=master)](https://travis-ci.org/rheinardkorf/wp-middleware) [![Coverage Status](https://coveralls.io/repos/rheinardkorf/wp-middleware/badge.svg?branch=master)](https://coveralls.io/github/rheinardkorf/wp-middleware) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com) [![devDependency Status](https://david-dm.org/rheinardkorf/wp-middleware/dev-status.svg)](https://david-dm.org/rheinardkorf/wp-middleware?type=dev) 
 
 ## Description ##
 
