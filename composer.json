@@ -1,7 +1,7 @@
 {
 	"name": "xwp/wp-middleware",
 	"type": "wordpress-plugin",
-	"description": "WordPress plugin scaffold/template",
+	"description": "A WordPress plugin to create middleware for third-party APIs.",
 	"homepage": "https://github.com/xwp/wp-middleware",
 	"license": "GPLv2",
 	"require-dev": {

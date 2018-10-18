@@ -6,53 +6,6 @@ module.exports = function( grunt ) {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
 
-		// JavaScript linting with JSHint.
-		jshint: {
-			options: {
-				jshintrc: '.jshintrc'
-			},
-			all: [
-				'Gruntfile.js',
-				'js/*.js',
-				'!js/*.min.js'
-			]
-		},
-
-		// Minify .js files.
-		uglify: {
-			options: {
-				preserveComments: false
-			},
-			core: {
-				files: [ {
-					expand: true,
-					cwd: 'js/',
-					src: [
-						'*.js',
-						'!*.min.js'
-					],
-					dest: 'js/',
-					ext: '.min.js'
-				} ]
-			}
-		},
-
-		// Minify .css files.
-		cssmin: {
-			core: {
-				files: [ {
-					expand: true,
-					cwd: 'css/',
-					src: [
-						'*.css',
-						'!*.min.css'
-					],
-					dest: 'css/',
-					ext: '.min.css'
-				} ]
-			}
-		},
-
 		// Check textdomain errors.
 		checktextdomain: {
 			options:{
@@ -194,9 +147,6 @@ module.exports = function( grunt ) {
 
 	// Register tasks
 	grunt.registerTask( 'default', [
-		'jshint',
-		'uglify',
-		'cssmin',
 		'checktextdomain'
 	] );
 

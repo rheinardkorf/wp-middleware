@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Middleware
  * Plugin URI: https://github.com/xwp/wp-middleware
- * Description: ...
+ * Description: A plugin to create middleware for third-party APIs.
  * Version: 0.1
  * Author:  XWP
  * Author URI: https://xwp.co/
