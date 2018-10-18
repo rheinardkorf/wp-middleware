@@ -1,10 +1,10 @@
 {
 	"name": "wp-middleware",
 	"title": "WP Middleware",
-	"homepage": "https://github.com/xwp/wp-wp-middleware",
+	"homepage": "https://github.com/xwp/wp-middleware",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/xwp/wp-wp-middleware.git"
+		"url": "https://github.com/xwp/wp-middleware.git"
 	},
 	"author": "XWP",
 	"license": "GPL-2.0+",

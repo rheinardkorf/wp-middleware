@@ -13,6 +13,13 @@ namespace WPMiddleware;
 class Plugin extends Plugin_Base {
 
 	/**
+	 * Registered proxies.
+	 *
+	 * @var array
+	 */
+	public $proxies = array();
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -22,24 +29,35 @@ class Plugin extends Plugin_Base {
 	 * @action after_setup_theme, 9
 	 */
 	public function init() {
-		$this->config = apply_filters( 'wp_middleware_plugin_config', $this->config, $this );
+		$this->config  = apply_filters( 'wp_middleware_plugin_config', $this->config, $this );
+		$this->proxies = apply_filters( 'wp_middleware_proxy', $this->proxies );
+		add_action( 'rest_api_init', array( $this, 'register_proxy_endpoints' ) );
 	}
 
 	/**
-	 * Register scripts.
+	 * Register all the proxies.
 	 *
-	 * @action wp_default_scripts, 11
+	 * @action rest_api_init
 	 *
-	 * @param \WP_Scripts $wp_scripts Instance of \WP_Scripts.
+	 * @return void
 	 */
-	public function register_scripts( \WP_Scripts $wp_scripts ) {}
+	public function register_proxy_endpoints() {
+		if ( ! empty( $this->proxies ) ) {
+			foreach ( $this->proxies as $proxy_args ) {
 
-	/**
-	 * Register styles.
-	 *
-	 * @action wp_default_styles, 11
-	 *
-	 * @param \WP_Styles $wp_styles Instance of \WP_Styles.
-	 */
-	public function register_styles( \WP_Styles $wp_styles ) {}
+				$proxy = new Proxy( $proxy_args );
+
+				register_rest_route(
+					$proxy->namespace,
+					'/.*',
+					array(
+						'methods'             => $proxy->valid_methods,
+						'callback'            => array( $proxy, 'handle_request' ),
+						'permission_callback' => '__return_true',
+					)
+				);
+
+			}
+		}
+	}
 }

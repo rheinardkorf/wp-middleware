@@ -68,19 +68,11 @@ abstract class Plugin_Base {
 	 * Plugin_Base constructor.
 	 */
 	public function __construct() {
-		$location = $this->locate_plugin();
-		$this->slug = $location['dir_basename'];
+		$location       = $this->locate_plugin();
+		$this->slug     = $location['dir_basename'];
 		$this->dir_path = $location['dir_path'];
-		$this->dir_url = $location['dir_url'];
+		$this->dir_url  = $location['dir_url'];
 		spl_autoload_register( array( $this, 'autoload' ) );
-		$this->add_doc_hooks();
-	}
-
-	/**
-	 * Plugin_Base destructor.
-	 */
-	function __destruct() {
-		$this->remove_doc_hooks();
 	}
 
 	/**
@@ -195,111 +187,5 @@ abstract class Plugin_Base {
 		if ( ! $this->is_wpcom_vip_prod() ) {
 			trigger_error( esc_html( get_class( $this ) . ': ' . $message ), $code );
 		}
-	}
-
-	/**
-	 * Hooks a function on to a specific filter.
-	 *
-	 * @param string $name     The hook name.
-	 * @param array  $callback The class object and method.
-	 * @param array  $args     An array with priority and arg_count.
-	 *
-	 * @return mixed
-	 */
-	public function add_filter( $name, $callback, $args = array( 'priority' => 10, 'arg_count' => PHP_INT_MAX ) ) {
-		return $this->_add_hook( 'filter', $name, $callback, $args );
-	}
-
-	/**
-	 * Hooks a function on to a specific action.
-	 *
-	 * @param string $name     The hook name.
-	 * @param array  $callback The class object and method.
-	 * @param array  $args     An array with priority and arg_count.
-	 *
-	 * @return mixed
-	 */
-	public function add_action( $name, $callback, $args = array( 'priority' => 10, 'arg_count' => PHP_INT_MAX ) ) {
-		return $this->_add_hook( 'action', $name, $callback, $args );
-	}
-
-	/**
-	 * Hooks a function on to a specific action/filter.
-	 *
-	 * @param string $type     The hook type. Options are action/filter.
-	 * @param string $name     The hook name.
-	 * @param array  $callback The class object and method.
-	 * @param array  $args     An array with priority and arg_count.
-	 *
-	 * @return mixed
-	 */
-	protected function _add_hook( $type, $name, $callback, $args = array() ) {
-		$priority = isset( $args['priority'] ) ? $args['priority'] : 10;
-		$arg_count = isset( $args['arg_count'] ) ? $args['arg_count'] : PHP_INT_MAX;
-		$fn = sprintf( '\add_%s', $type );
-		$retval = \call_user_func( $fn, $name, $callback, $priority, $arg_count );
-		return $retval;
-	}
-
-	/**
-	 * Add actions/filters from the methods of a class based on DocBlocks.
-	 *
-	 * @param object $object The class object.
-	 */
-	public function add_doc_hooks( $object = null ) {
-		if ( is_null( $object ) ) {
-			$object = $this;
-		}
-		$class_name = get_class( $object );
-		if ( isset( $this->_called_doc_hooks[ $class_name ] ) ) {
-			$notice = sprintf( 'The add_doc_hooks method was already called on %s. Note that the Plugin_Base constructor automatically calls this method.', $class_name );
-			if ( ! $this->is_wpcom_vip_prod() ) {
-				trigger_error( esc_html( $notice ), \E_USER_NOTICE );
-			}
-			return;
-		}
-		$this->_called_doc_hooks[ $class_name ] = true;
-
-		$reflector = new \ReflectionObject( $object );
-		foreach ( $reflector->getMethods() as $method ) {
-			$doc = $method->getDocComment();
-			$arg_count = $method->getNumberOfParameters();
-			if ( preg_match_all( '#\* @(?P<type>filter|action)\s+(?P<name>[a-z0-9\-\._/=]+)(?:,\s+(?P<priority>\-?[0-9]+))?#', $doc, $matches, PREG_SET_ORDER ) ) {
-				foreach ( $matches as $match ) {
-					$type = $match['type'];
-					$name = $match['name'];
-					$priority = empty( $match['priority'] ) ? 10 : intval( $match['priority'] );
-					$callback = array( $object, $method->getName() );
-					call_user_func( array( $this, "add_{$type}" ), $name, $callback, compact( 'priority', 'arg_count' ) );
-				}
-			}
-		}
-	}
-
-	/**
-	 * Removes the added DocBlock hooks.
-	 *
-	 * @param object $object The class object.
-	 */
-	public function remove_doc_hooks( $object = null ) {
-		if ( is_null( $object ) ) {
-			$object = $this;
-		}
-		$class_name = get_class( $object );
-
-		$reflector = new \ReflectionObject( $object );
-		foreach ( $reflector->getMethods() as $method ) {
-			$doc = $method->getDocComment();
-			if ( preg_match_all( '#\* @(?P<type>filter|action)\s+(?P<name>[a-z0-9\-\._/=]+)(?:,\s+(?P<priority>\-?[0-9]+))?#', $doc, $matches, PREG_SET_ORDER ) ) {
-				foreach ( $matches as $match ) {
-					$type = $match['type'];
-					$name = $match['name'];
-					$priority = empty( $match['priority'] ) ? 10 : intval( $match['priority'] );
-					$callback = array( $object, $method->getName() );
-					call_user_func( "remove_{$type}", $name, $callback, $priority );
-				}
-			}
-		}
-		unset( $this->_called_doc_hooks[ $class_name ] );
 	}
 }

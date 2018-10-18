@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Middleware
- * Plugin URI: https://github.com/xwp/wp-wp-middleware
+ * Plugin URI: https://github.com/xwp/wp-middleware
  * Description: ...
  * Version: 0.1
  * Author:  XWP

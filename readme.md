@@ -3,13 +3,13 @@
 
 Template plugin for scaffolding WordPress plugins at XWP.
 
-**Contributors:** [xwp](https://profiles.wordpress.org/xwp)  
-**Requires at least:** 4.4  
-**Tested up to:** 4.5  
-**Stable tag:** trunk (master)  
-**License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
+**Contributors:** [xwp](https://profiles.wordpress.org/xwp)
+**Requires at least:** 4.4
+**Tested up to:** 4.5
+**Stable tag:** trunk (master)
+**License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 
-[![Build Status](https://travis-ci.org/xwp/wp-wp-middleware.svg?branch=master)](https://travis-ci.org/xwp/wp-wp-middleware) [![Coverage Status](https://coveralls.io/repos/xwp/wp-wp-middleware/badge.svg?branch=master)](https://coveralls.io/github/xwp/wp-wp-middleware) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com) [![devDependency Status](https://david-dm.org/xwp/wp-wp-middleware/dev-status.svg)](https://david-dm.org/xwp/wp-wp-middleware#info=devDependencies) 
+[![Build Status](https://travis-ci.org/xwp/wp-middleware.svg?branch=master)](https://travis-ci.org/xwp/wp-middleware) [![Coverage Status](https://coveralls.io/repos/xwp/wp-middleware/badge.svg?branch=master)](https://coveralls.io/github/xwp/wp-middleware) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com) [![devDependency Status](https://david-dm.org/xwp/wp-middleware/dev-status.svg)](https://david-dm.org/xwp/wp-middleware#info=devDependencies)
 
 ## Description ##
 

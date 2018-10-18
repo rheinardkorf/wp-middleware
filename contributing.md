@@ -36,7 +36,7 @@ $ git clone https://github.com/xwp/wordpress-develop.git
 
 To clone this repository
 ``` bash
-$ git clone --recursive git@github.com:xwp/wp-wp-middleware.git wp-middleware
+$ git clone --recursive git@github.com:xwp/wp-middleware.git wp-middleware
 ```
 
 To install packages
