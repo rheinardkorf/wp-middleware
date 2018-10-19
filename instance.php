@@ -14,6 +14,8 @@ require_once __DIR__ . '/php/class-plugin.php';
 
 $wp_middleware_plugin = new Plugin();
 
+add_action( 'after_setup_theme', array( $wp_middleware_plugin, 'init' ), 9 );
+
 /**
  * WP Middleware Plugin Instance
  *
