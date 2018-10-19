@@ -128,7 +128,7 @@ class Proxy extends Plugin_Base {
 			 * @param \WP_REST_Request $request  API request.
 			 */
 			do_action( $this->namespace . '_proxy_raw_response_received', $response, $route, $request );
-			if ( ! is_wp_error( $response ) ) {
+			if ( ! is_wp_error( $response ) && ! empty( $response ) ) {
 				$result = json_decode( $response['body'], true );
 			} else {
 				$result = $response;
