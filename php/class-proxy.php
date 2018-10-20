@@ -114,7 +114,9 @@ class Proxy extends Plugin_Base {
 
 			// Add body if PUT/POST.
 			if ( 'PUT' === $request_method || 'POST' === $request_method ) {
-				$args['body'] = wp_json_encode( $request->get_params() );
+				$body         = $request->get_body();
+				$body         = ! empty( $body ) ? $body : wp_json_encode( $request->get_params() );
+				$args['body'] = $body;
 			}
 
 			// Proxy the request.
